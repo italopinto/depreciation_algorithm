@@ -63,8 +63,9 @@ export default function SecondForm(props) {
     setNewValues(newTax());
     setNewDep(true);
   }
-
+  // dados vindos do menu.js
   const data = props.dados;
+
   const custo = data.custo;
   const vidaUtil = data.vidaUtil;
   const dep = custo / vidaUtil;
@@ -309,7 +310,7 @@ export default function SecondForm(props) {
 
           <div className="field mb-6">
             <div className="control">
-              <button type="submit" className="button is-primary">Enviar</button>
+              <button type="submit" className="button is-primary has-text-weight-bold">Calcular</button>
             </div>
           </div>
         </form>
@@ -322,7 +323,7 @@ export default function SecondForm(props) {
           <table className="table is-bordered my-4">
             <thead>
               <tr>
-                <th>Tipo do bem</th>
+                <th>Tipo do bem ({data.tipoAsset})</th>
                 <th>Vida útil</th>
                 <th>Taxa de depreciação</th>
                 <th>Valor da depreciação anual (R$)</th>

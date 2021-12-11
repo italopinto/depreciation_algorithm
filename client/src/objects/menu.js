@@ -10,6 +10,7 @@ replaceAllInserter.shim();
 
 export default function Menu() {
   const [dadosDosBens, setDadosDosBens] = useState([]);
+
   const [btn, setBtn] = useState(true);
   const [bem, setBem] = useState(false);
   const [form2, setForm2] = useState(false);
@@ -19,13 +20,16 @@ export default function Menu() {
   const [taxaSrfb, setTaxaSrfb] = useState(null);
   const [tipoBem, setTipoBem] = useState(null);
   const [custoBem, setCustoBem] = useState(null);
+  const [tipoAtivo, setTipoAtivo] = useState(null);
 
+  // dados globais para o segundo form
   const depInfo = {
     dataAquisicao: dataUser,
     vidaUtil: vidaUtil,
     taxaSrfb: taxaSrfb,
     bem: tipoBem,
-    custo: custoBem
+    custo: custoBem,
+    tipoAsset: tipoAtivo
   }
 
   function dataGlobal (data, vida, taxa, bem, custo) {
@@ -40,6 +44,7 @@ export default function Menu() {
   const getCollection = async (e) => {
     const dados = await axios.get(`/api/collections/?collName=${e}`);
     setDadosDosBens(dados.data.data);
+    setTipoAtivo(e.replaceAll("_", " "));
     setBtn(false);
     setBem(true);
   };
@@ -81,7 +86,7 @@ export default function Menu() {
           <>
             <div className="card block">
               <div className="card-content">
-                <FirstForm dados={dadosDosBens} callbackParent={dataGlobal}/>
+                <FirstForm dados={dadosDosBens} bem={tipoAtivo} callbackParent={dataGlobal}/>
               </div>
             </div>
           </>

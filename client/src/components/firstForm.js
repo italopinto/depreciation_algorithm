@@ -16,7 +16,7 @@ export default function FirstForm(props) {
   function handleSubmit(event){
     event.preventDefault();
     console.log(data, vida, taxa, bem, custo);
-    if (!data || !vida || !taxa || !bem || !custo) {
+    if (!data || !vida || !taxa || !bem || !custo || typeof custo != "number") {
 
     } else {
       setDep(true);
@@ -35,19 +35,19 @@ export default function FirstForm(props) {
   }
 
   function changeCusto(event) {
-    setCusto(event.target.value);
+    setCusto(parseFloat(event.target.value));
   }
 
   function depreciation(dataUser, vidaUtil, custoBem, taxaDep) {
     const result = custoBem / vidaUtil;
-    const info = verificaVidaUtil(vidaUtil, dataUser);
+    // const info = verificaVidaUtil(vidaUtil, dataUser);
     return (
       <>
         <h3 className="is-size-3 has-text-centered has-text-weight-normal">Método da Receita Federal</h3>
         <table className="table is-bordered my-4">
           <thead>
             <tr>
-              <th>Tipo do bem*</th>
+              <th>Tipo do bem ({props.bem})*</th>
               <th>Vida útil*</th>
               <th>Taxa de depreciação<a href="https://www.gov.br/receitafederal/pt-br" target="_blank"> SRFB*</a></th>
               <th>Valor da depreciação anual (R$)</th>
@@ -65,7 +65,7 @@ export default function FirstForm(props) {
             <td>{result}</td>
           </tbody>
         </table>
-        <div className="notification is-warning">
+        {/* <div className="notification is-warning">
           <strong>
             {
             typeof (info) === "object" ?
@@ -74,33 +74,35 @@ export default function FirstForm(props) {
               info
             }
           </strong>
-        </div>
+        </div> */}
       </>
       );
   }
 
-  function verificaVidaUtil(vida_util_srfb, vida_util_user) {
-    const limite = vida_util_srfb * 12;
-    const vidaCalculada = vida_util_user.getFullYear();
-    const anoAtual = new Date().getFullYear();
-    const result = ((anoAtual - vidaCalculada) * 12) + (vida_util_user.getMonth() + 1);
+  /**
+   function verificaVidaUtil(vida_util_srfb, vida_util_user) {
+     const limite = vida_util_srfb * 12;
+     const vidaCalculada = vida_util_user.getFullYear();
+     const anoAtual = new Date().getFullYear();
+     const result = ((anoAtual - vidaCalculada) * 12) + (vida_util_user.getMonth() + 1);
 
-    if (result == 0) {
-      return "Começo da vida útil do bem!";
-    } else if (result < limite) {
-      const boundary = (limite / 12);
-      const lifeCalculated = (result / 12);
-      const anoCalculado = Math.floor(boundary) - Math.floor(lifeCalculated);
-      const ano = anoCalculado == vida_util_srfb ? vida_util_srfb - 1 : anoCalculado;
-      const mes = (limite - result) % 12;
-      return { ano: ano, mes: mes };
-    } else if (result == limite) {
-      return "Último ano da vida útil do bem!";
-    } else if (result > limite) {
-      return "Vida útil do bem esgotada!";
-    }
+     if (result == 0) {
+       return "Começo da vida útil do bem!";
+     } else if (result < limite) {
+       const boundary = (limite / 12);
+       const lifeCalculated = (result / 12);
+       const anoCalculado = Math.floor(boundary) - Math.floor(lifeCalculated);
+       const ano = anoCalculado == vida_util_srfb ? vida_util_srfb - 1 : anoCalculado;
+       const mes = (limite - result) % 12;
+       return { ano: ano, mes: mes };
+     } else if (result == limite) {
+       return "Último ano da vida útil do bem!";
+     } else if (result > limite) {
+       return "Vida útil do bem esgotada!";
+     }
+   }
 
-  }
+   */
 
   return (
     <>
@@ -123,7 +125,7 @@ export default function FirstForm(props) {
           </div>
           <div className="field mb-6">
             <div className="control">
-              <button type="submit" className="button is-primary">Enviar</button>
+              <button type="submit" className="button is-primary has-text-weight-bold">Calcular</button>
             </div>
           </div>
         </form>
