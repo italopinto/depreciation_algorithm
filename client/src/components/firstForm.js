@@ -44,7 +44,7 @@ export default function FirstForm(props) {
     return (
       <>
         <h3 className="is-size-3 has-text-centered has-text-weight-normal">Método da Receita Federal</h3>
-        <table className="table is-bordered my-4">
+        <table className="table is-bordered is-fullwidth my-4">
           <thead>
             <tr>
               <th>Tipo do bem ({props.bem})*</th>
