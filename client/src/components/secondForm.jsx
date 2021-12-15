@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import { PieChart } from "./pieChart";
 
 
 export default function SecondForm(props) {
   // lógica booleana
   const [manut, setManut] = useState(false);
   const [newDep, setNewDep] = useState(false);
+  const [dadosChart, setDadosChart] = useState({})
 
   // variaveis depreciacao
   let valueObs;
   let valueCons;
   let valueManut;
   let valueInte;
+
 
   // novos valores calculados
   const [newValues, setNewValues] = useState({});
@@ -60,6 +63,15 @@ export default function SecondForm(props) {
     valueManut = values.manu;
     valueInte = values.ints;
     console.log(valueObs, valueCons, valueManut, valueInte);
+
+    // dados para o chart
+    setDadosChart({
+      obs: valueObs,
+      cons: valueCons,
+      manut: valueManut,
+      inte: valueInte
+    })
+
     setNewValues(newTax());
     setNewDep(true);
   }
@@ -330,9 +342,9 @@ export default function SecondForm(props) {
               </tr>
             </thead>
             <tfoot>
-              <tr>
-                <td>Colocar uma forma de imprimir a memória de calculo</td>
-              </tr>
+              {/* <tr>
+                <td></td>
+              </tr> */}
             </tfoot>
             <tbody>
               <td>{bem}</td>
@@ -341,6 +353,20 @@ export default function SecondForm(props) {
               <td>{newValues.novaDep}</td>
             </tbody>
           </table>
+          <div className="divider"/>
+          <div className="block content">
+            <div className="container">
+            <h4 className="is-size-4 has-text-centered has-text-weight-bold my-4">Influência de cada variável</h4>
+            <PieChart dados={dadosChart}/>
+
+            </div>
+            <ul>
+              <li><strong>Obsolescência:</strong> Aumenta a taxa de depreciação.</li>
+              <li><strong>Conservação:</strong> Diminui a taxa de depreciação.</li>
+              <li><strong>Manutenção:</strong> Diminui a taxa de depreciação.</li>
+              <li><strong>Intensidade de uso:</strong> Aumenta a taxa de depreciação.</li>
+            </ul>
+          </div>
         </>
       )}
     </>
