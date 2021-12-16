@@ -12,6 +12,8 @@ export function PieChart(props) {
   let intensidade = props.dados.inte*100;
 
   const data = {
+    maintainAspectRatio: false,
+    responsive: false,
     labels: ['Obsolescência (%)', 'Conservação (%)', 'Manutenção (%)', 'Intensidade de Uso (%)'],
     datasets: [
       {

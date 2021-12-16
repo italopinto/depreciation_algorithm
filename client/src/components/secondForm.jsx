@@ -353,13 +353,14 @@ export default function SecondForm(props) {
               <td>{newValues.novaDep}</td>
             </tbody>
           </table>
-          <div className="divider"/>
-          <div className="block content">
-            <div className="container">
+          <div className="divider block"/>
             <h4 className="is-size-4 has-text-centered has-text-weight-bold my-4">Influência de cada variável</h4>
-            <PieChart dados={dadosChart}/>
-
+          <div className="columns">
+            <div className="column is-half is-offset-one-quarter">
+              <PieChart dados={dadosChart}/>
             </div>
+          </div>
+          <div className="content">
             <ul>
               <li><strong>Obsolescência:</strong> Aumenta a taxa de depreciação.</li>
               <li><strong>Conservação:</strong> Diminui a taxa de depreciação.</li>
