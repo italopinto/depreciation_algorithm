@@ -75,7 +75,7 @@ export default function Menu() {
         {btn && (
           <>
             <section className="section">
-              <h3 className="subtitle is-3 has-text-centered has-text-weight-medium">Qual o tipo do bem?</h3>
+              <h3 className="subtitle is-3 has-text-centered has-text-weight-semibold">Qual o tipo do bem?</h3>
             </section>
             <div className="columns is-mobile is-multiline is-centered">
               {each}
@@ -86,7 +86,9 @@ export default function Menu() {
           <>
             <div className="card block">
               <div className="card-content">
-                <FirstForm dados={dadosDosBens} bem={tipoAtivo} callbackParent={dataGlobal}/>
+                <div className="content">
+                  <FirstForm dados={dadosDosBens} bem={tipoAtivo} callbackParent={dataGlobal}/>
+                </div>
               </div>
             </div>
           </>
@@ -95,7 +97,9 @@ export default function Menu() {
           <>
             <div className="card block">
               <div className="card-content">
-                <SecondForm dados={depInfo}/>
+                <div className="content">
+                  <SecondForm dados={depInfo}/>
+                </div>
               </div>
             </div>
           </>

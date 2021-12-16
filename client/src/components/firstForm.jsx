@@ -132,9 +132,7 @@ export default function FirstForm(props) {
       )}
       {dep && (
         <>
-          <div className="content">
-            {depreciation(data, vida, custo, taxa)}
-          </div>
+          {depreciation(data, vida, custo, taxa)}
         </>
       )}
     </>

@@ -354,7 +354,7 @@ export default function SecondForm(props) {
             </tbody>
           </table>
           <div className="divider block"/>
-            <h4 className="is-size-4 has-text-centered has-text-weight-bold my-4">Influência de cada variável</h4>
+          <h4 className="is-size-4 has-text-centered has-text-weight-semibold my-4">Influência de cada variável</h4>
           <div className="columns">
             <div className="column is-half is-offset-one-quarter">
               <PieChart dados={dadosChart}/>
