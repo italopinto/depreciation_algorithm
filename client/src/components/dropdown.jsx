@@ -20,10 +20,7 @@ export default function Dropdown(props) {
       <div className="dropdown is-hoverable">
         <div className="dropdown-trigger">
           <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-            <span>Selecione</span>
-            <span className="icon is-small">
-              <i className="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
+            { drop ? <span>Selecione</span> : <span>{selection}</span> }
           </button>
         </div>
         <div className="dropdown-menu" id="dropdown-menu4" role="menu">
@@ -44,11 +41,11 @@ export default function Dropdown(props) {
           </div>
         </div>
       </div>
-      {!drop &&
+      {/* {!drop &&
         <div className="content mx-2 my-4">
           {selection}
         </div>
-      }
+      } */}
     </>
   )
 }
