@@ -14,7 +14,12 @@ export function PieChart(props) {
   const data = {
     maintainAspectRatio: false,
     responsive: false,
-    labels: [`Obsolescência: ${obsolescencia}%`, `Conservação: ${conservacao}%`, `Manutenção: ${manutencao}%`, `Intensidade de Uso: ${intensidade}%`],
+    labels: [
+      `Obsolescência: ${obsolescencia}%`,
+      `Conservação: ${conservacao}%`,
+      `Manutenção: ${manutencao}%`,
+      `Intensidade de Uso: ${intensidade}%`
+    ],
     datasets: [
       {
         label: '# of Votes',
