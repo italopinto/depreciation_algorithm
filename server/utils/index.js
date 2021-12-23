@@ -17,4 +17,4 @@ async function allCollections(collection) {
 }
 
 module.exports = allCollections;
-
+// allCollections("animais_vivos").then(a => console.log(a)).catch(e => console.log(e))
