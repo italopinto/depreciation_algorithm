@@ -21,27 +21,27 @@ export default function SecondForm(props) {
   function variavesDepreciacao(values) {
     const firstObs = parseFloat(values.firstObs.value);
     const secObs = parseFloat(values.secondObs.value);
-    const thiObs = parseFloat(values.thirdObs.value);
-    const fouObs = parseFloat(values.fourthObs.value);
-    const obsolescencia = firstObs + secObs + thiObs + fouObs;
+    // const thiObs = parseFloat(values.thirdObs.value);
+    // const fouObs = parseFloat(values.fourthObs.value);
+    const obsolescencia = firstObs + secObs;
 
     const firstCons = parseFloat(values.firstEst.value);
     const secCons = parseFloat(values.secondEst.value);
-    const thitCons = parseFloat(values.thirdEst.value);
-    const fouCons = parseFloat(values.fourthEst.value);
-    const conservacao = firstCons + secCons + thitCons + fouCons;
+    // const thitCons = parseFloat(values.thirdEst.value);
+    // const fouCons = parseFloat(values.fourthEst.value);
+    const conservacao = firstCons + secCons;
 
     const firstManu = !manut ? 0 : parseFloat(values.firstManut.value);
     const secManu = !manut ? 0 : parseFloat(values.secondManut.value);
-    const thiManu = !manut ? 0 : parseFloat(values.thirdManut.value);
-    const fouManu = !manut ? 0 : parseFloat(values.fourthManut.value);
-    const manutencao = firstManu + secManu + thiManu + fouManu;
+    // const thiManu = !manut ? 0 : parseFloat(values.thirdManut.value);
+    // const fouManu = !manut ? 0 : parseFloat(values.fourthManut.value);
+    const manutencao = firstManu + secManu;
 
     const firstInte = parseFloat(values.firstInt.value);
     const secInte = parseFloat(values.secondInt.value);
-    const thiInte = parseFloat(values.thirdInt.value);
-    const fouInte = parseFloat(values.fourthInt.value);
-    const intensidade = firstInte + secInte + thiInte + fouInte;
+    // const thiInte = parseFloat(values.thirdInt.value);
+    // const fouInte = parseFloat(values.fourthInt.value);
+    const intensidade = firstInte + secInte;
 
     return {
       obs: obsolescencia,
@@ -109,28 +109,28 @@ export default function SecondForm(props) {
           <div className="py-4">
             <h4 className="title is-4">Obsolescência</h4>
             <div className="field">
-              <label className="label">Existem versões mais eficientes?</label>
+              <label className="label">O bem apresenta uso inadequado (operadores desqualificados)?</label>
               <div className="control">
                 <div className="select">
                   <select name="firstObs">
-                    <option value="0.125">Sim</option>
+                    <option value="0.12">Sim</option>
                     <option value="0">Não</option>
                   </select>
                 </div>
               </div>
             </div>
             <div className="field">
-              <label className="label">Existem versões mais novas?</label>
+              <label className="label">Esse tipo de bem apresenta avanços tecnológicos frequentes?</label>
               <div className="control">
                 <div className="select">
                   <select name="secondObs">
-                    <option value="0.125">Sim</option>
+                    <option value="0.11">Sim</option>
                     <option value="0">Não</option>
                   </select>
                 </div>
               </div>
             </div>
-            <div className="field">
+            {/* <div className="field">
               <label className="label">O bem já perdeu eficiência desde de sua aquisição?</label>
               <div className="control">
                 <div className="select">
@@ -151,7 +151,7 @@ export default function SecondForm(props) {
                   </select>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="divider"/>
 
@@ -159,28 +159,28 @@ export default function SecondForm(props) {
           <div className="py-4">
             <h4 className="title is-4">Estado de conservação</h4>
             <div className="field">
-              <label className="label">Ativo sem avarias?</label>
+              <label className="label">Ativo em bom estado físico? (boa aparência, sem avarias)</label>
               <div className="control">
                 <div className="select">
                   <select name="firstEst">
-                    <option value="-0.125">Sim</option>
+                    <option value="-0.14">Sim</option>
                     <option value="0">Não</option>
                   </select>
                 </div>
               </div>
             </div>
             <div className="field">
-              <label className="label">Possui configuração/disposição dos componentes de forma original? (sem adaptações)</label>
+              <label className="label">Apresenta potencial produtivo satisfatório?</label>
               <div className="control">
                 <div className="select">
                   <select name="secondEst">
-                    <option value="-0.125">Sim</option>
+                    <option value="-0.11">Sim</option>
                     <option value="0">Não</option>
                   </select>
                 </div>
               </div>
             </div>
-            <div className="field">
+            {/* <div className="field">
               <label className="label">É utilizado em ambiente adequado de acordo com as instruções do fabricante?</label>
               <div className="control">
                 <div className="select">
@@ -201,7 +201,7 @@ export default function SecondForm(props) {
                   </select>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="divider"/>
 
@@ -222,28 +222,28 @@ export default function SecondForm(props) {
             {manut && (
             <>
               <div className="field">
-                <label className="label">É realizado manutenção de forma preventiva?</label>
+                <label className="label">A manutenção é realizada de forma preventiva?</label>
                 <div className="control">
                   <div className="select">
                     <select name="firstManut">
-                      <option value="-0.125">Sim</option>
+                      <option value="-0.16">Sim</option>
                       <option value="0">Não</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div className="field">
-                <label className="label">A manutenção é realizada nos prazos recomendados pelos fabricantes?</label>
+                <label className="label">A manutenção segue recomendações do fabricante?</label>
                 <div className="control">
                   <div className="select">
                     <select name="secondManut">
-                      <option value="-0.125">Sim</option>
+                      <option value="-0.09">Sim</option>
                       <option value="0">Não</option>
                     </select>
                   </div>
                 </div>
               </div>
-              <div className="field">
+              {/* <div className="field">
                 <label className="label">A manutenção é realizada por profissionais qualificados?</label>
                 <div className="control">
                   <div className="select">
@@ -264,7 +264,7 @@ export default function SecondForm(props) {
                     </select>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </>
             )}
           </div>
@@ -274,28 +274,28 @@ export default function SecondForm(props) {
           <div className="py-4">
             <h4 className="title is-4">Intensidade de uso</h4>
             <div className="field">
-              <label className="label">É utilizado em sua capacidade máxima ou próximo dela? (força, potencia, processamento, etc)</label>
+              <label className="label">É utilizado por longos períodos ou com grande frequência?</label>
               <div className="control">
                 <div className="select">
                   <select name="firstInt">
-                    <option value="0.125">Sim</option>
+                    <option value="0.15">Sim</option>
                     <option value="0">Não</option>
                   </select>
                 </div>
               </div>
             </div>
             <div className="field">
-              <label className="label">Esse bem é usado frequentemente?</label>
+              <label className="label">Uso acima do recomendado pelo fabricante?</label>
               <div className="control">
                 <div className="select">
                   <select name="secondInt">
-                    <option value="0.125">Sim</option>
+                    <option value="0.12">Sim</option>
                     <option value="0">Não</option>
                   </select>
                 </div>
               </div>
             </div>
-            <div className="field">
+            {/* <div className="field">
               <label className="label">É utilizado em atividades para qual não foi projetado?</label>
               <div className="control">
                 <div className="select">
@@ -316,7 +316,7 @@ export default function SecondForm(props) {
                   </select>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="divider"/>
 

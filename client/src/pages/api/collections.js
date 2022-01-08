@@ -5,8 +5,8 @@ export default async function handler(req, res) {
 
   const PORT = process.env.PORT || 5000;
   const HOST = process.env.HOST || "0.0.0.0";
-  const URL = process.env.NODE_ENV ? HOST : HOST + ":" + PORT;
-  const http = process.env.NODE_ENV ? 'https' : 'http';
+  const URL = process.env.NODE_ENV == true ? HOST : HOST + ":" + PORT;
+  const http = process.env.NODE_ENV == true ? 'https' : 'http';
 
   const data = await axios.get(`${http}://${URL}/api/v1/${collName}`);
   console.log(data.data);
